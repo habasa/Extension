@@ -1,0 +1,32 @@
+{
+  "name": "C2E extension",
+  "version": "0.1",
+  "manifest_version": 3,
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "history",
+    "storage",
+    "webNavigation",
+    "webRequest",
+    "scripting"
+  ],
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["index.html", "test.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
